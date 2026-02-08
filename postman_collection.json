@@ -1,0 +1,140 @@
+{
+  "info": {
+    "_postman_id": "2a5aa5ba-6e5c-4a58-9099-4f3fd87c2b7c",
+    "name": "Astro Engine Backend",
+    "description": "Postman collection for astro-engine-backend endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Config",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/config",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "config"
+          ]
+        },
+        "description": "Returns fixed engine configuration, config hash, and Swiss Ephemeris version."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Snapshot",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/snapshot?ts={{ts}}&include_aspects={{include_aspects}}&orb={{orb}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "snapshot"
+          ],
+          "query": [
+            {
+              "key": "ts",
+              "value": "{{ts}}",
+              "description": "ISO timestamp with offset. Example: 2026-02-07T12:15:00+05:30"
+            },
+            {
+              "key": "include_aspects",
+              "value": "{{include_aspects}}",
+              "description": "Set true to include aspects array."
+            },
+            {
+              "key": "orb",
+              "value": "{{orb}}",
+              "description": "Aspect orb in degrees (0.0 to 15.0)."
+            }
+          ]
+        },
+        "description": "Computes D1 + D9 + Panchang for a timestamp. Optionally includes aspect calculations."
+      },
+      "response": []
+    },
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "health"
+          ]
+        },
+        "description": "Basic health endpoint."
+      },
+      "response": []
+    },
+    {
+      "name": "Daily (Placeholder)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/daily",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "daily"
+          ]
+        },
+        "description": "Placeholder endpoint. Currently returns NotImplemented."
+      },
+      "response": []
+    },
+    {
+      "name": "Events (Placeholder)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/events",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "events"
+          ]
+        },
+        "description": "Placeholder endpoint. Currently returns NotImplemented."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "ts",
+      "value": "2026-02-07T12:15:00+05:30"
+    },
+    {
+      "key": "include_aspects",
+      "value": "false"
+    },
+    {
+      "key": "orb",
+      "value": "3"
+    }
+  ]
+}
